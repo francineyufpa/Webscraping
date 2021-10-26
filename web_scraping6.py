@@ -18,21 +18,17 @@ header = {
 html = Request(url, headers=header)
 html = urlopen(html).read()
 bs = BeautifulSoup(html, 'html.parser')
-
 """
-
-# Vamos testar a biblioteca requests
-#url = 'https://pt.proxyservers.pro/'
-url = 'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-2020/agenda-tributaria-janeiro-2020/dia-06-01-2020'
+#url = 'https://hidemy.name/en/'
+url = 'https://hidemy.name/en/proxy-list/?country=BR&type=hs&anon=34' #list
 html = requests.get(url).content
-#print(html)
 bs = BeautifulSoup(html, 'html.parser')
+print(bs.prettify())
 
-#linhas = bs.find_all('tr', {'class':'even'})
-#print(html.status_code())
-#print(bs.prettify())
-linhas = bs.find_all('tr', {'class':'even'})
-#print(linhas[0])
+#tabela = bs.find('table')
+#print(tabela)
+#linhas = bs.find_all("tr")
+#print(linhas)
 
 ## Imprime todo texto contido em cada linha ##
 #for i in linhas:
@@ -45,7 +41,7 @@ linhas = bs.find_all('tr', {'class':'even'})
 ##   print(filhas[1])
 #   print(filhas[2])
 
-
+"""
 codigo, descricao, periodo = [], [], []
 for i in linhas:
     children = i.findChildren("td")
@@ -66,9 +62,4 @@ df.to_csv('texte.csv')
 bs = BeautifulSoup(driver_source) 
 
 """
-#html = urlopen("https://hidemy.name/en/")
-# https://hidemy.name/en/proxy-list/?country=BR&type=hs&anon=34#list
-#bs = BeautifulSoup(html, 'html.parser')
-#print(bs.prettify())
 
-"""
